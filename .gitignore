@@ -62,3 +62,6 @@ TAGS
 
 # Ignore the db directory
 db/
+
+# Main executable file
+bookie
