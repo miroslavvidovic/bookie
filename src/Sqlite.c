@@ -170,14 +170,14 @@ void sqlite_select_by_id(char *id)
     if (step == SQLITE_ROW) {
         printf("%s: ", "ID");
         printf("%s\n", sqlite3_column_text(stmt, 0));
-        /* printf("%s:", "url"); */
+        printf("%s: ", "url");
         printf(GRN"%s\n"RESET, sqlite3_column_text(stmt, 1));
         printf("%s: ", "tags");
         printf("%s\n", sqlite3_column_text(stmt, 2));
         printf("%s: ", "description");
         printf("%s\n", sqlite3_column_text(stmt, 3));
         printf("%s: ", "created on");
-        printf("%s", sqlite3_column_text(stmt, 4));
+        printf("%s\n", sqlite3_column_text(stmt, 4));
     } 
 
     sqlite3_finalize(stmt);
@@ -214,7 +214,7 @@ void sqlite_delete(char *id)
     sqlite_disconnect(&db);
 }
 
-sqlite_update(char *id, char *url, char *tags, char *desc)
+void sqlite_update(char *id, char *url, char *tags, char *desc)
 {
     sqlite3 *db;
     char *zErrMsg = 0;
@@ -244,4 +244,3 @@ sqlite_update(char *id, char *url, char *tags, char *desc)
 
     sqlite_disconnect(&db);
 }
-
